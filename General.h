@@ -13,9 +13,14 @@
 
 #include "Utils.h"
 
+#define MSG_LIST_TRYOUT "Client POS: %d | id: %lu | Name: %s %c"
+#define MSG_LIST_CLIENT "Client id: %lu | Name: %s %c"
+#define MSG_LIST_ERROR "No clients found. %c"
 #define MSG_ID "Insert ID(10000000-99999999): "
 #define MSG_ID_EXIST_ERROR "ERROR: ID already exists. "
-#define MSG_ID_ERROR "ERROR: ID not within limits. "
+#define MSG_ID_ERROR "ERROR: ID invalid. %c"
+#define MSG_CLIENTS_FULL_ERROR "ERROR: Can't add more clients. "
+#define MSG_CLIENT_ADDED "Client added successfully. "
 #define MSG_NAME "Insert name: "
 #define MSG_NAME_ERROR "ERROR: Name invalid. "
 #define MSG_STREET "Insert street name: "
@@ -28,11 +33,16 @@
 #define MSG_CITY_ERROR "ERROR: City name invalid. "
 #define MSG_PHONE "Insert phone number: "
 #define MSG_PHONE_ERROR "ERROR: Phone number invalid. (91, 92, 93, 96 or 253"
-#define MSG_DAY "Insert day: "
-#define MSG_DAY_ERROR "ERROR: Day must be between 1 and 31. "
-#define MSG_MONTH "Insert month: "
-#define MSG_MONTH_ERROR "ERROR: Month must be between 1 and 12. "
-#define MSG_YEAR "Insert year: "
+#define MSG_BIRTHDAY "Insert Birthday. %c"
+#define MSG_SIGNUPDATE "Insert Signup date. %c"
+#define MSG_DAY "Day: "
+#define MSG_DAY_ERROR "ERROR: Day must be between 1 and 31. %c"
+#define MSG_MONTH "Month: "
+#define MSG_MONTH_ERROR "ERROR: Month must be between 1 and 12. %c"
+#define MSG_YEAR "Year: "
+#define MSG_YEAR_ERROR "ERROR: Year must be between 1900 and 2100. %c"
+
+
 #define MSG_FEB_ERROR "ERROR: February only has 28 days. "
 #define MSG_DAYS_ON_MONTH_ERROR "ERROR: Month inserted doesn't have 31 days. "
 #define MSG_BIRTHDAY_DAY "Insert birthday day: "
@@ -57,6 +67,10 @@ static const int YEAR_MAXIMUM = 2100;
 typedef struct tm Date;
 
 unsigned short getDay();
+
+unsigned short getMonth();
+
+unsigned short getYear();
 
 unsigned short getDate();
 

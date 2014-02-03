@@ -14,6 +14,8 @@ unsigned short getDay() {
         scanf("%hu", &day);
         if(day >= DAY_MINIMUM && day <= DAY_MAXIMUM) {
             val = true;
+        } else {
+            printf(MSG_DAY_ERROR, NEWLINE);
         }
     } while(val == false);
     
@@ -29,6 +31,8 @@ unsigned short getMonth() {
         scanf("%hu", &month);
         if(month >= MONTH_MINIMUM && month <= MONTH_MAXIMUM) {
             val = true;
+        } else {
+            printf(MSG_MONTH_ERROR, NEWLINE);
         }
     } while(val == false);
     
@@ -44,6 +48,8 @@ unsigned short getYear() {
         scanf("%hu", &year);
         if(year >= YEAR_MINIMUM && year <= YEAR_MAXIMUM) {
             val = true;
+        } else {
+            printf(MSG_YEAR_ERROR, NEWLINE);
         }
     } while(val == false);
     
@@ -80,10 +86,10 @@ unsigned short getDate() {
                     }
                 }
             } else {
-                printf(MSG_MONTH_ERROR);
+                printf(MSG_MONTH_ERROR, NEWLINE);
             }
         } else {
-            printf(MSG_DAY_ERROR);
+            printf(MSG_DAY_ERROR, NEWLINE);
             printf("%c", NEWLINE);
         }
     } while(val == false);

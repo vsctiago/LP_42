@@ -11,23 +11,39 @@
 #include "Client.h"
 #include "Vehicle.h"
 #include "General.h"
+#include "Menu.h"
+#include "Utils.h"
 
 /*
  * 
  */
 int main(int argc, char** argv) {
-    
     Client clients[CLIENTS_SIZE];
-    int i ;
+    int menuOpt, clientOpt;
     
-    getBirthday(clients, 1);
+    readClientFile(clients);
     
-    //for(i=0; i<CLIENTS_SIZE; i++) {
-        printf("%d \n", clients[1].birthDay.tm_mday);
-        printf("%d \n", clients[1].birthDay.tm_mon);
-        printf("%d \n", clients[1].birthDay.tm_year);
-    //}
-    
+    do {
+        Menu();
+        scanf("%d", &menuOpt);
+        if(menuOpt == 1) {
+            ClientMenu();
+            scanf("%d", &clientOpt);
+            if(clientOpt == 1) {
+                addClient(clients);
+                saveClientFile(clients);
+            } else if(clientOpt == 2) {
+                modifyClient(clients);
+                
+            } else if(clientOpt == 4) {
+                listClients(clients);
+            }
+        } else if(menuOpt == 2) {
+
+        } else {
+            
+        }
+    } while(menuOpt != 5);
     return (EXIT_SUCCESS);
 }
 

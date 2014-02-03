@@ -17,6 +17,7 @@
 #define PC_DASH 4
 #define PC_ADASH 5
 #define PC_END 8
+#define CLIENTS_INIT_ID 0
 
 static const int CLIENTS_SIZE = 50;
 static const int ID_MINIMUM = 10000000;
@@ -50,8 +51,6 @@ typedef struct client {
     Date signupDate;
 } Client;
 
-
-
 void getId(Client *pClients, unsigned short pos);
 
 void getName(Client *pClients, unsigned short pos);
@@ -68,7 +67,25 @@ void getPhone(Client *pClients, unsigned short pos);
 
 void getBirthday(Client *pClients, unsigned short pos);
 
+void getSignupDate(Client *pClients, unsigned short pos);
+
+int verifyIfPosEmpty(Client *pClients);
+
+int verifyClientToModify(Client *pClients, unsigned long id);
+
+void createClientFile(Client clients[]);
+
+Client initClientFile(Client *pClients);
+
+Client readClientFile(Client clients[]);
+
+void saveClientFile(Client *pClients);
+
 void addClient(Client *pClients);
+
+void modifyClient(Client *pClients);
+
+void listClients(Client clients[]);
 
 #ifdef	__cplusplus
 extern "C" {
