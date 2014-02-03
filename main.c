@@ -19,9 +19,10 @@
  */
 int main(int argc, char** argv) {
     Client clients[CLIENTS_SIZE];
+    Vehicle vehicle[VEHICLE_MAX];
     int menuOpt, clientOpt;
     
-    readClientFile(clients);
+   /* readClientFile(clients);
     
     do {
         Menu();
@@ -44,6 +45,8 @@ int main(int argc, char** argv) {
             
         }
     } while(menuOpt != 5);
+    * 
+    */
     return (EXIT_SUCCESS);
 }
 

@@ -12,6 +12,7 @@
 
 #define REGISTRATION_LENGTH 8+1
 #define NAME_LENGTH 100+1
+static const int VEHICLE_MAX = 10;
 static const int ENGINE_MINIMUM = 0;
 static const int ENGINE_MAXIMUM = 9999;
 static const int HP_MINIMUM = 0;
@@ -24,13 +25,12 @@ typedef enum type {
 } Type;
 
 typedef enum fuel {
-    DIESEL, GASOLINE
+    DIESEL, GASOLINE, GAS, ELECTRIC
 } Fuel;
 
-typedef enum actualStatus {
+typedef enum currentState {
     A, B
-} ActualStatus;
-
+} CurrentState;
 
 typedef struct vehicleChars {
     unsigned short engine;
@@ -44,7 +44,7 @@ typedef struct vehicle {
     char name[NAME_LENGTH];
     Type type;
     VehicleChars vehicleChars;
-    ActualStatus actualStatus;
+    CurrentState currentState;
 } Vehicle;
 
 
